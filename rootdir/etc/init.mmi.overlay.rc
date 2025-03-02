@@ -1,0 +1,173 @@
+on fs
+	insmod /vendor/lib/modules/msm_drm.ko
+	insmod /vendor/lib/modules/mmi_annotate.ko
+	insmod /vendor/lib/modules/mmi_info.ko
+	insmod /vendor/lib/modules/mmi_relay.ko
+	insmod /vendor/lib/modules/sensors_class.ko
+	insmod /vendor/lib/modules/touchscreen_mmi.ko
+	insmod /vendor/lib/modules/bu520xx_pen.ko
+	insmod /vendor/lib/modules/stmicro_mmi.ko
+	insmod /vendor/lib/modules/goodix_brl_mmi.ko
+	insmod /vendor/lib/modules/nova_0flash_mmi.ko
+	insmod /vendor/lib/modules/ili9882_mmi.ko
+	insmod /vendor/lib/modules/parade_tma5xx_mmi_core.ko
+	insmod /vendor/lib/modules/parade_tma5xx_mmi_loader.ko
+	insmod /vendor/lib/modules/parade_tma5xx_mmi_access.ko
+	insmod /vendor/lib/modules/sx937x_sar.ko
+	insmod /vendor/lib/modules/qti_glink_charger.ko
+	insmod /vendor/lib/modules/qpnp_adaptive_charge.ko
+	insmod /vendor/lib/modules/leds_aw99703.ko
+        #zram wb
+        mount_all /vendor/etc/fstab.qcom.zram --early
+
+on early-boot
+    # factory i2c
+    chmod 0660 /dev/i2c-0
+    chmod 0660 /dev/i2c-1
+    chmod 0660 /dev/i2c-2
+    chmod 0660 /dev/i2c-3
+    chmod 0660 /dev/i2c-4
+    chown system system /dev/i2c-0
+    chown system system /dev/i2c-1
+    chown system system /dev/i2c-2
+    chown system system /dev/i2c-3
+    chown system system /dev/i2c-4
+
+    # change permission of backlight brightness for tcmd daemon
+    chmod 664 /sys/class/backlight/panel1-backlight/brightness
+    # for ufs HID
+    chown system system /sys/devices/platform/soc/1d84000.ufshc/ufshid/trigger
+    chown system system /sys/devices/platform/soc/1d84000.ufshc/manual_gc
+
+on boot
+    # allow TCMD to access cci for OIS test
+    chmod 0660 /dev/cci_intf
+    chown system camera /dev/cci_intf
+
+    #change adsp pmic test command file access permission
+    chown vendor_tcmd system /sys/devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:mmi,qti-glink-charger/tcmd
+    chown vendor_tcmd system /sys/devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:mmi,qti-glink-charger/force_pmic_icl
+    chown vendor_tcmd system /sys/devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:mmi,qti-glink-charger/force_usb_suspend
+    chown vendor_tcmd system /sys/devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:mmi,qti-glink-charger/addr
+    chown vendor_tcmd system /sys/devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:mmi,qti-glink-charger/data
+    chmod 0660 /sys/devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:mmi,qti-glink-charger/tcmd
+    chmod 0660 /sys/devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:mmi,qti-glink-charger/force_pmic_icl
+    chmod 0660 /sys/devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:mmi,qti-glink-charger/force_usb_suspend
+    chmod 0660 /sys/devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:mmi,qti-glink-charger/addr
+    chmod 0660 /sys/devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:mmi,qti-glink-charger/data
+
+    # change permission of brightness
+    chown system system /sys/class/backlight/aw99703-bl/brightness
+    chmod 0666 /sys/class/backlight/aw99703-bl/brightness
+
+    #bluetooth sar
+    write /data/vendor/radio/bluetooth_sar disable
+    chmod 0644 /data/vendor/radio/bluetooth_sar
+    chown radio /data/vendor/radio/bluetooth_sar
+
+    # Touch game mode control
+    chown system system /sys/class/touchscreen/primary/rotate
+    chmod 0660 /sys/class/touchscreen/primary/rotate
+    chown system system /sys/class/touchscreen/primary/interpolation
+    chmod 0660 /sys/class/touchscreen/primary/interpolation
+    chown system system /sys/class/touchscreen/primary/edge
+    chmod 0660 /sys/class/touchscreen/primary/edge
+    chown system system /sys/class/touchscreen/primary/sensitivity
+    chmod 0660 /sys/class/touchscreen/primary/sensitivity
+    chown system system /sys/class/touchscreen/primary/gesture
+    chmod 0660 /sys/class/touchscreen/primary/gesture
+    chown system system /sys/class/touchscreen/primary/palm_settings
+    chmod 0660 /sys/class/touchscreen/primary/palm_settings
+    chmod 0444 /dev/moto_penraw
+
+    #change vibrator test node file access permission
+    chmod 0660 /sys/class/qcom-haptics/enable_play
+    chown vendor_tcmd system /sys/class/qcom-haptics/enable_play
+
+    #change flip battery charging test command file access permission
+    chown vendor_tcmd system /sys/class/power_supply/charger/device/chg_en
+    chown vendor_tcmd system /sys/class/power_supply/charger/device/charger_suspend
+    chown vendor_tcmd system /sys/class/power_supply/charger/device/high_load_en
+    chown vendor_tcmd system /sys/class/power_supply/charger/device/low_load_en
+    chown vendor_tcmd system /sys/class/power_supply/charger/input_current_limit
+    chown vendor_tcmd system /sys/class/power_supply/charger/constant_charge_current
+
+    # copy gps license file to /mnt/vendor/persist/data/pfm/licenses
+    copy /vendor/etc/motorola/qcom_gps_license.pfm /mnt/vendor/persist/data/pfm/licenses/qcom_gps_license.pfm
+    chmod 0644 /mnt/vendor/persist/data/pfm/licenses/qcom_gps_license.pfm
+
+   # Set adaptive charging perms for HAL
+    chown system system /sys/module/qpnp_adaptive_charge/parameters/upper_limit
+    chown system system /sys/module/qpnp_adaptive_charge/parameters/lower_limit
+    # Use dirty bytes
+    write /proc/sys/vm/dirty_background_bytes 26214400
+    write /proc/sys/vm/dirty_bytes 104857600
+
+service capsense_reset /system/vendor/bin/capsense_reset
+   class core
+   user system
+   group system input
+   disabled
+
+on property:sys.boot_completed=1
+    start capsense_reset
+
+service mot_flip_count /vendor/bin/mot_flip_count
+   class core
+   user system
+   group system input
+   disabled
+
+on property:sys.boot_completed=1
+    start mot_flip_count
+
+service vendor.motpsd /system/vendor/bin/motpsd
+    class late_start
+    user root
+
+#change for Geneva5G NA (SM6450) because the node changed
+on property:vendor.wifi.tethering=false
+    write /sys/module/adrastea/parameters/sar_mhs disabled
+
+on property:vendor.wifi.tethering=true
+    write /sys/module/adrastea/parameters/sar_mhs enabled
+
+on property:vendor.wifi.station=true
+    write /sys/module/adrastea/parameters/sar_sta enabled
+
+on property:vendor.wifi.station=false
+    write /sys/module/adrastea/parameters/sar_sta disabled
+
+on property:ro.bootmode=mot-factory
+    write /sys/class/leds/charging/brightness 100
+    chown vendor_tcmd system /sys/module/mmi_charger/parameters/factory_kill_disable
+    chmod 0660 /sys/module/mmi_charger/parameters/factory_kill_disable
+
+on init && property:ro.boot.cid=0x0000
+    write /sys/module/sgm4154x_charger_lite/parameters/paired_vbat_panic_enabled 1
+
+on init && property:ro.boot.chg_panic_enabled=false
+    write /sys/module/sgm4154x_charger_lite/parameters/paired_vbat_panic_enabled 0
+
+on init && property:ro.boot.chg_panic_enabled=true
+    write /sys/module/sgm4154x_charger_lite/parameters/paired_vbat_panic_enabled 1
+
+on early-init
+   exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -r -d /vendor/lib/modules zram
+
+on late-init
+   exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules moto_mm moto_swap
+
+# Enable debugfs for userdebug build
+on early-init && property:ro.build.type=userdebug
+    mount debugfs debugfs /sys/kernel/debug
+    chmod 0755 /sys/kernel/debug
+
+on property:vendor.bluetooth.sar_state=connect
+    write /data/vendor/radio/bluetooth_sar connect
+
+on property:vendor.bluetooth.sar_state=disconnect
+    write /data/vendor/radio/bluetooth_sar disconnect
+
+on property:persist.sys.zram_wb_enabled=false && property:ro.config.moto_swap_supported=true
+    setprop persist.sys.zram_wb_enabled true
