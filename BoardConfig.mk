@@ -14,17 +14,17 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/motorola/avatrn
+DEVICE_PATH := device/motorola/genevn
 
 # Inherit from motorola sm7435-common
 include device/motorola/sm7435-common/BoardConfigCommon.mk
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := avatrn
+TARGET_BOOTLOADER_BOARD_NAME := genevn
 
 # Kernel
 TARGET_KERNEL_CONFIG += \
-	vendor/ext_config/moto-parrot-avatrn.config
+	vendor/ext_config/moto-parrot-genevn.config
 
 # Partitions
 BOARD_MOT_DP_GROUP_SIZE := 9038725120 # ( BOARD_SUPER_PARTITION_SIZE - 4MB )
@@ -40,12 +40,12 @@ TARGET_RECOVERY_UI_MARGIN_HEIGHT := 90
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/init/fstab.qcom
 
 # Security
-BOOT_SECURITY_PATCH := 2026-01-01
+BOOT_SECURITY_PATCH := 2026-05-01
 VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
 
 # Verified Boot
-BOARD_AVB_ROLLBACK_INDEX := 19
-BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := 19
+BOARD_AVB_ROLLBACK_INDEX := 32
+BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := 32
 
 # inherit from the proprietary version
-include vendor/motorola/avatrn/BoardConfigVendor.mk
+include vendor/motorola/genevn/BoardConfigVendor.mk

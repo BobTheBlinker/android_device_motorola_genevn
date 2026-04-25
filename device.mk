@@ -74,7 +74,9 @@ $(call soong_config_set,lineage_powershare,powershare_path,/sys/class/power_supp
 
 # Properties
 PRODUCT_PACKAGES += \
-    hardware.sku.XT2405V.prop
+    hardware.sku.XT2315-1.prop \
+    hardware.sku.XT2315-4.prop \
+    hardware.sku.XT2315-5.prop
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
@@ -92,4 +94,4 @@ ODM_MANIFEST_N_FILES := \
     device/motorola/sm7435-common/vintf/manifest_ss.xml
 
 # Inherit from vendor blobs
-$(call inherit-product, vendor/motorola/avatrn/avatrn-vendor.mk)
+$(call inherit-product, vendor/motorola/genevn/genevn-vendor.mk)

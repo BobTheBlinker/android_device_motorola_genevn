@@ -19,21 +19,21 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 TARGET_SUPPORTS_OMX_SERVICE := false
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit from avatrn device
-$(call inherit-product, device/motorola/avatrn/device.mk)
+# Inherit from genevn device
+$(call inherit-product, device/motorola/genevn/device.mk)
 
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-PRODUCT_NAME := lineage_avatrn
-PRODUCT_DEVICE := avatrn
+PRODUCT_NAME := lineage_genevn
+PRODUCT_DEVICE := genevn
 PRODUCT_MANUFACTURER := motorola
 PRODUCT_BRAND := motorola
-PRODUCT_MODEL := motorola edge 2024
+PRODUCT_MODEL := moto g stylus 5G - 2023
 
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    DeviceProduct="avatrn_g" \
-    BuildDesc="avatrn_g-user 15 V1UANS35H.98-24-7 6bffa1-3b9e8 release-keys" \
-    BuildFingerprint="motorola/avatrn_g/avatrn:15/V1UANS35H.98-24-7/6bffa1-3b9e8:user/release-keys"
+    DeviceProduct="genevn_g" \
+    BuildDesc="genevn_g-user 14 U1TGNS34.42-86-2-38 75e6c-32d474 release-keys MUR1-0.143" \
+    BuildFingerprint="motorola/genevn_g/genevn:14/U1TGNS34.42-86-2-38/75e6c-32d474:user/release-keys"
