@@ -54,12 +54,11 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     fstab.qcom.vendor_ramdisk \
     init.mmi.overlay.rc \
-    init.oem.fingerprint2.sh \
-    init.vendor.st21nfc.rc
+    init.oem.fingerprint2.sh
 
 # NFC
 PRODUCT_PACKAGES += \
-    android.hardware.nfc-service.st \
+    android.hardware.nfc-service.nxp \
     com.android.nfc_extras \
     Tag
 

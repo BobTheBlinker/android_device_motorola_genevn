@@ -1,5 +1,3 @@
-import /vendor/etc/init/hw/init.vendor.st21nfc.rc
-
 on fs
     #zram wb
     mount_all /vendor/etc/fstab.qcom.zram --early
