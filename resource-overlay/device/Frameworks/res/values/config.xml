@@ -74,19 +74,29 @@
 
          Must be overridden in platform specific overlays -->
     <array name="config_autoBrightnessLevels">
+        <item>1</item>
         <item>2</item>
-        <item>4</item>
+        <item>5</item>
         <item>10</item>
-        <item>20</item>
-        <item>40</item>
+        <item>29</item>
+        <item>50</item>
+        <item>90</item>
         <item>100</item>
-        <item>325</item>
-        <item>1250</item>
-        <item>3500</item>
-        <item>5000</item>
-        <item>10000</item>
-        <item>20000</item>
-        <item>30000</item>
+        <item>150</item>
+        <item>200</item>
+        <item>300</item>
+        <item>400</item>
+        <item>500</item>
+        <item>800</item>
+        <item>1000</item>
+        <item>1300</item>
+        <item>1500</item>
+        <item>1600</item>
+        <item>1800</item>
+        <item>2000</item>
+        <item>3000</item>
+        <item>4000</item>
+        <item>8000</item>
     </array>
 
     <!-- Array of desired screen brightness in nits corresponding to the lux values
@@ -103,19 +113,29 @@
          overridden in platform specific overlays -->
     <array name="config_autoBrightnessDisplayValuesNits">
         <item>3</item>
-        <item>7</item>
         <item>10</item>
-        <item>24</item>
-        <item>64</item>
-        <item>82</item>
-        <item>90</item>
-        <item>105</item>
-        <item>192</item>
-        <item>412</item>
-        <item>500</item>
-        <item>700</item>
-        <item>1000</item>
-        <item>1200</item>
+        <item>20</item>
+        <item>50</item>
+        <item>70</item>
+        <item>85</item>
+        <item>110</item>
+        <item>130</item>
+        <item>150</item>
+        <item>180</item>
+        <item>180</item>
+        <item>180</item>
+        <item>180</item>
+        <item>194</item>
+        <item>194</item>
+        <item>194</item>
+        <item>194</item>
+        <item>194</item>
+        <item>350</item>
+        <item>380</item>
+        <item>420</item>
+        <item>450</item>
+        <item>450</item>
+        <item>450</item>
     </array>
 
     <!-- An array describing the screen's backlight values corresponding to the brightness
@@ -123,19 +143,21 @@
 
          This array should be equal in size to config_screenBrightnessBacklight. -->
     <array name="config_screenBrightnessBacklight">
-        <item>9</item>
-        <item>26</item>
-        <item>34</item>
-        <item>52</item>
+        <item>0</item>
+        <item>2</item>
+        <item>6</item>
+        <item>11</item>
+        <item>28</item>
+        <item>40</item>
+        <item>48</item>
+        <item>62</item>
+        <item>74</item>
         <item>85</item>
-        <item>95</item>
-        <item>100</item>
-        <item>107</item>
-        <item>141</item>
-        <item>200</item>
-        <item>219</item>
-        <item>229</item>
-        <item>245</item>
+        <item>102</item>
+        <item>110</item>
+        <item>198</item>
+        <item>215</item>
+        <item>238</item>
         <item>255</item>
     </array>
 
@@ -147,27 +169,29 @@
 
          This array should be equal in size to config_screenBrightnessBacklight -->
     <array name="config_screenBrightnessNits">
+        <item>0</item>
         <item>3</item>
-        <item>7</item>
         <item>10</item>
-        <item>24</item>
-        <item>64</item>
-        <item>82</item>
-        <item>90</item>
-        <item>105</item>
-        <item>192</item>
-        <item>412</item>
-        <item>500</item>
-        <item>700</item>
-        <item>1000</item>
-        <item>1200</item>
+        <item>20</item>
+        <item>50</item>
+        <item>70</item>
+        <item>85</item>
+        <item>110</item>
+        <item>130</item>
+        <item>150</item>
+        <item>180</item>
+        <item>194</item>
+        <item>350</item>
+        <item>380</item>
+        <item>420</item>
+        <item>450</item>
     </array>
 
     <!-- MMS user agent string, for example OemNameDeviceName
          If the string contains a '%s' format string then that substring will be replaced
          with the value of Build.MODEL , ie
          <string name="config_mms_user_agent">OemName%s</string> -->
-    <string name="config_mms_user_agent" translatable="false">motorolaedge2024</string>
+    <string name="config_mms_user_agent" translatable="false">motogstylus5g2023</string>
 
     <!-- MMS user agent prolfile url, for example https://uaprof.oem_name.com/DeviceName.xml
          if the string contains a '%s' format string then that substring will be replaced
@@ -180,10 +204,6 @@
 
     <!-- Type of the double tap sensor. Empty if double tap is not supported. -->
     <string name="config_dozeDoubleTapSensorType" translatable="false">org.lineageos.sensor.double_tap</string>
-
-    <!-- Whether to enable fp unlock when screen turns off on udfps devices -->
-    <bool name="config_screen_off_udfps_enabled">true</bool>
-
     <!-- Type of the udfps long press sensor. Empty if long press is not supported. -->
     <string name="config_dozeUdfpsLongPressSensorType" translatable="false">org.lineageos.sensor.udfps</string>
 
@@ -259,7 +279,7 @@
 
          @see https://www.w3.org/TR/SVG/paths.html#PathData
          -->
-    <string name="config_mainBuiltInDisplayCutout" translatable="false">M -42,0 L 42,0 L 42,106 L -42,106 Z</string>
+    <string name="config_mainBuiltInDisplayCutout" translatable="false">M -40,0 L 40,0 L 40,110 L -40,110 Z</string>
 
     <!-- The default refresh rate for a given device. Change this value to set a higher default
          refresh rate. If the hardware composer on the device supports display modes with a higher
@@ -275,7 +295,7 @@
          the framework from using higher refresh rates, even if display modes with higher refresh
          rates are available from hardware composer. Only has an effect if the value is
          non-zero. -->
-    <integer name="config_defaultPeakRefreshRate">144</integer>
+    <integer name="config_defaultPeakRefreshRate">120</integer>
 
     <!-- The display uses different gamma curves for different refresh rates. It's hard for panel
          vendors to tune the curves to have exact same brightness for different refresh rate. So
@@ -307,10 +327,20 @@
         <item>0:2:15</item>
     </array>
 
-    <!-- The properties of a UDFPS sensor in pixels, in the order listed below: -->
-    <array name="config_udfps_sensor_props" translatable="false">
-        <item>540</item>
-        <item>2167</item>
-        <item>91</item>
+    <!-- Indicates whether device has a power button fingerprint sensor. -->
+    <bool name="config_is_powerbutton_fps">true</bool>
+
+    <!-- An array of arrays of side fingerprint sensor properties relative to each display.
+         Note: this value is temporary and is expected to be queried directly
+         from the HAL in the future. -->
+    <array name="config_sfps_sensor_props" translatable="false">
+        <item>@array/config_sfps_sensor_props_0</item>
+    </array>
+
+    <array name="config_sfps_sensor_props_0" translatable="false">
+        <item></item>
+        <item>0</item>
+        <item>875</item>
+        <item>0</item>
     </array>
 </resources>
