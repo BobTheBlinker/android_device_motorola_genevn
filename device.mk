@@ -58,6 +58,7 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     fstab.qcom.vendor_ramdisk \
     init.mmi.overlay.rc \
+    init.oem.fingerprint2.sh \
     init.vendor.st21nfc.rc
 
 # NFC
