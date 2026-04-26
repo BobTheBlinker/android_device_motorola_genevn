@@ -1,5 +1,4 @@
 # Audio
-vendor.audio.hac_on=false
 vendor.audio.min.dr0=5.1
 vendor.audio.max.dr0=6.9
 vendor.audio.min.dr1=5.1

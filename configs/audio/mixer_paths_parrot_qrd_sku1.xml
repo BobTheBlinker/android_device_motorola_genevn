@@ -1786,12 +1786,6 @@
     <path name="spkr-vi-record">
     </path>
 
-    <path name="audio-with-haptics-playback speaker-and-haptics">
-    </path>
-
-    <path name="audio-with-haptics-playback headphones-and-haptics">
-    </path>
-
     <!-- These are actual sound device specific mixer settings -->
     <path name="amic1">
         <ctl name="TX DEC0 MUX" value="SWR_MIC" />
@@ -1858,7 +1852,6 @@
     </path>
 
     <path name="haptics-dev">
-        <ctl name="SWR DAC_Port Switch" value="1" />
     </path>
 
     <path name="speaker-mono">
@@ -2080,8 +2073,7 @@
     </path>
 
     <path name="voice-handset-hac">
-        <ctl name="aw_dev_1_switch" value="Disable" />
-        <ctl name="aw_dev_0_prof" value="HAC" />
+        <path name="handset" />
     </path>
 
     <path name="voice-handset-hdk">
@@ -2333,16 +2325,10 @@
 
     <path name="handset-dual-mic">
         <path name="handset-dmic-endfire" />
-        <ctl name="ADC1 Volume" value="8" />
-        <ctl name="ADC2 Volume" value="8" />
-        <ctl name="ADC3 Volume" value="8" />
     </path>
 
     <path name="speaker-dual-mic-invert">
         <path name="speaker-dmic-endfire" />
-        <ctl name="ADC1 Volume" value="8" />
-        <ctl name="ADC2 Volume" value="8" />
-        <ctl name="ADC3 Volume" value="8" />
     </path>
 
     <path name="dmic-endfire">
@@ -2439,9 +2425,6 @@
 
     <path name="camcorder-dual-mic">
         <path name="speaker-dmic-endfire" />
-        <ctl name="ADC1 Volume" value="8" />
-        <ctl name="ADC2 Volume" value="8" />
-        <ctl name="ADC3 Volume" value="8" />
     </path>
 
     <!-- TTY devices -->
