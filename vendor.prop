@@ -15,9 +15,6 @@ ro.vendor.display.sensortype=2
 vendor.display.foss.config=1
 vendor.display.foss.config_path=/vendor/etc/display/FOSSConfig.xml
 
-# Fingerprint
-ro.hardware.fingerprint=goodix
-
 # NFC
 persist.vendor.nfc.st.multisim_fw_config=true
 
