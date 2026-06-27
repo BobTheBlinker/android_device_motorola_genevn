@@ -413,5 +413,5 @@ vendor/firmware/novatek_ts-csot-NT36672C-2302240D-605b-genevn.bin
 # Touchscreen firmware (recovery)
 vendor/firmware/ILITEK_FW:recovery/root/vendor/firmware/ILITEK_FW
 vendor/firmware/NT36xxx_MP_Setting_Criteria_605B.csv:recovery/root/vendor/firmware/NT36xxx_MP_Setting_Criteria_605B.csv
-vendor/firmware/mp-novatek_ts-csot-NT36672C-2302240D-605b-genevn.bin:recovery/root/vendor/firmware/mp-novatek_ts-csot-NT36672C-2302240D-605b-genevn.bin
-vendor/firmware/novatek_ts-csot-NT36672C-2302240D-605b-genevn.bin:recovery/root/vendor/firmware/novatek_ts-csot-NT36672C-2302240D-605b-genevn.bin
+vendor/firmware/mp-novatek_ts-csot-NT36672C-2302240D-605b-genevn.bin:recovery/root/vendor/firmware/csot_novatek_ts_mp.bin
+vendor/firmware/novatek_ts-csot-NT36672C-2302240D-605b-genevn.bin:recovery/root/vendor/firmware/csot_novatek_ts_fw.bin
