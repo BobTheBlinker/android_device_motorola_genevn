@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_genevn.mk
+    $(LOCAL_DIR)/bliss_genevn.mk
