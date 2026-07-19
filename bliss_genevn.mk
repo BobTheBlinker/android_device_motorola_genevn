@@ -25,6 +25,12 @@ $(call inherit-product, device/motorola/genevn/device.mk)
 # Inherit some common BlissROM stuff.
 $(call inherit-product, vendor/bliss/config/common_full_phone.mk)
 
+# Maintainer Overlay
+PRODUCT_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+
+# GMS Package Variant (pico, nano, micro, full, stock)
+TARGET_GAPPS_VARIANT := full
+
 PRODUCT_NAME := bliss_genevn
 PRODUCT_DEVICE := genevn
 PRODUCT_MANUFACTURER := motorola
