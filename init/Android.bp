@@ -4,13 +4,6 @@
 //
 
 prebuilt_etc {
-    name: "fstab.qcom",
-    src: "fstab.qcom",
-    vendor: true,
-    vendor_ramdisk_available: true,
-}
-
-prebuilt_etc {
     name: "init.mmi.overlay.rc",
     src: "init.mmi.overlay.rc",
     sub_dir: "init/hw",
