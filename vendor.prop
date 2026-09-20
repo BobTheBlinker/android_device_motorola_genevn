@@ -6,6 +6,9 @@ vendor.audio.max.dr1=6.9
 vendor.audio.min.temp=20.0
 vendor.audio.max.temp=60.0
 
+# Bluetooth
+persist.vendor.qcom.bluetooth.scram.enabled=true
+
 # Camera
 persist.vendor.camera.physical.num=3
 
